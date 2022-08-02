@@ -37,6 +37,7 @@ function ModelAddGoals() {
                 Alert.alert("You goal is Added successfully");
                 setOpen();
                 addGoal({ id: Math.random().toString(), text: goal });
+                setGoal("");
               } else {
                 Alert.alert(
                   "Please you need to fill your goal before submiting",
