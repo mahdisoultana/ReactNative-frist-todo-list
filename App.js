@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import AddButton from "./components/AddButton";
+import ListGoalItems from "./components/ListGoalItems";
+import ModelAddGoals from "./components/ModelAddGoals";
+import { Container } from "./components/styled";
+import { useModel } from "./store";
 
-export default function App() {
+const App = () => {
+  const setOpen = useModel((s) => s.setOpen);
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Container>
+      <AddButton onSubmit={() => setOpen()} />
+      <ListGoalItems />
+      <ModelAddGoals />
+    </Container>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
